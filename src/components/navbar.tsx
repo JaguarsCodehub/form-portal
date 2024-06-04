@@ -39,10 +39,10 @@ const Navbar = () => {
                   href='/submission'
                   className={buttonVariants({
                     size: 'sm',
-                    className: 'hidden sm:flex items-center gap-1',
+                    className: ' sm:flex items-center gap-1',
                   })}
                 >
-                  View Submissions
+                  View Application Status
                   <ArrowRight className='ml-1.5 h-5 w-5' />
                 </Link>
               </>
@@ -69,17 +69,6 @@ const Navbar = () => {
                 </Link>
 
                 <div className='h-8 w-px bg-zinc-200 hidden sm:block' />
-
-                <Link
-                  href='/configure/upload'
-                  className={buttonVariants({
-                    size: 'sm',
-                    className: 'hidden sm:flex items-center gap-1',
-                  })}
-                >
-                  Create case
-                  <ArrowRight className='ml-1.5 h-5 w-5' />
-                </Link>
               </>
             )}
           </div>

@@ -33,7 +33,7 @@ const SubmissionsPage = () => {
         {form ? (
           <div
             className='max-w-lg w-full m-12 p-12 bg-rose-200 rounded-lg shadow-2xl hover:shadow-3xl cursor-pointer transform transition-transform z-10'
-            onClick={() => handleCardClick(form.id)}
+            // onClick={() => handleCardClick(form.id)}
           >
             <h1 className='text-xl lg:text-3xl font-extrabold mb-8 text-center text-black'>
               Your Submission
@@ -110,7 +110,9 @@ const SubmissionsPage = () => {
             </div>
           </div>
         ) : (
-          <p className='text-2xl font-semibold text-white'>Loading...</p>
+          <p className='text-2xl font-semibold text-white'>
+            No Submissions Yet
+          </p>
         )}
       </div>
     </div>
