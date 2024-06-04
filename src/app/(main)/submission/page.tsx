@@ -77,7 +77,7 @@ const SubmissionsPage = () => {
                 <h2 className='text-2xl font-semibold text-gray-800'>
                   Wallet Address
                 </h2>
-                <p className='text-lg text-gray-600'>{form.walletAddress}</p>
+                <p className='text-base text-gray-600'>{form.walletAddress}</p>
               </div>
               <div className='flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-inner'>
                 <svg
