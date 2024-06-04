@@ -1,3 +1,4 @@
+import LandingPage from '@/components/landing-page';
 import { auth, currentUser } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
@@ -15,8 +16,7 @@ export default async function Home() {
 
   return (
     <div>
-      <h1>Form</h1>
-      {user?.username}
+      <LandingPage />
     </div>
   );
 }

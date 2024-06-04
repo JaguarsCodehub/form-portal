@@ -25,6 +25,7 @@ import { z } from 'zod';
 import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { SocialIcon } from 'react-social-icons';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -70,90 +71,117 @@ export function ProfileForm() {
   };
 
   return (
-    <Card className="w-[780px] mx-auto mt-12 animate-fadeIn">
-      <CardHeader className="text-center bg-purple-700 text-white rounded-t-lg">
-        <CardTitle className="text-3xl">Fill this form for whitelisting your account</CardTitle>
-        <CardDescription>You have 3 unread messages</CardDescription>
-      </CardHeader>
-      <CardContent className="p-8 bg-white rounded-b-lg shadow-lg">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
+    <div className='relative h-full w-full bg-white'>
+      <div className='bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]  min-h-screen flex flex-col  text-left items-center justify-center'>
+        <Card className='mx-auto mt-12 animate-fadeIn'>
+          <CardHeader className='text-center bg-black text-white rounded-t-xl'>
+            <CardTitle className='font-medium text-xl lg:text-3xl'>
+              Fill this form for whitelisting your account
+            </CardTitle>
+            {/* <CardDescription>You have 3 unread messages</CardDescription> */}
+          </CardHeader>
+          <CardContent className='p-8 bg-white rounded-b-lg shadow-lg'>
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className='space-y-8'
+              >
+                <FormField
+                  control={form.control}
+                  name='name'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className='text-xl font-semibold'>
+                        Username
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder='Enter your username'
+                          {...field}
+                          className='rounded-lg border-2 border-black'
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='walletAddress'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className='text-xl font-semibold'>
+                        Wallet Address
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder='Enter your wallet address'
+                          {...field}
+                          className='rounded-lg border-2 border-black'
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name='contributionReview'
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className='text-xl font-semibold'>
+                        Your contribution to Web 3
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder='Write about your contribution to web3'
+                          {...field}
+                          className='rounded-lg border-2 border-black'
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="Enter your username"
-                      {...field}
-                      className="rounded-lg border-purple-700"
-                    />
+                    <span className='text-gray-800 text-lg lg:text-2xl  font-normal  '>
+                      Follow Catcents on{' '}
+                      <a
+                        href='https://x.com/catcentsio'
+                        className='font-semibold underline'
+                      >
+                        Twitter
+                        <SocialIcon
+                          url='https://x.com'
+                          style={{ width: 20, height: 20, marginLeft: 4 }}
+                          href='https://x.com/catcentsio'
+                        />
+                      </a>{' '}
+                      and Turn on notifications.
+                    </span>
                   </FormControl>
-                  <FormMessage />
                 </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="walletAddress"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Wallet Address</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter your wallet address"
-                      {...field}
-                      className="rounded-lg border-purple-700"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="contributionReview"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Your contribution to Web 3</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Write about your contribution to web3"
-                      {...field}
-                      className="rounded-lg border-purple-700"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormItem>
-              <FormControl>
-                <span className="text-gray-800 font-bold  ">
-                  Follow Catencts on Twitter <a href="#">(x)</a> and Turn on notifications
-                </span>
-              </FormControl>
-            </FormItem>
 
-            <Button
-              type="submit"
-              className="w-full py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:from-blue-500 hover:to-purple-500 transition duration-300"
-              disabled={isSubmitting}
-              onClick={() => {
-                toast({
-                  title: 'Your Form was Submitted',
-                  description:
-                    'We will verify your details and connect with you soon!',
-                });
-              }}
-            >
-              {isSubmitting ? 'Submitting Form....' : 'Submit'}
-            </Button>
-          </form>
-        </Form>
-      </CardContent>
-    </Card>
+                <Button
+                  type='submit'
+                  className='w-full py-3 bg-gradient-to-r bg-rose-500 text-white font-semibold rounded-lg shadow-md hover:from-rose-500 hover:to-red-700 transition duration-300'
+                  disabled={isSubmitting}
+                  onClick={() => {
+                    toast({
+                      title: 'Your Form was Submitted',
+                      description:
+                        'We will verify your details and connect with you soon!',
+                    });
+                  }}
+                >
+                  {isSubmitting ? 'Submitting Form....' : 'Submit'}
+                </Button>
+              </form>
+            </Form>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
   );
 }
