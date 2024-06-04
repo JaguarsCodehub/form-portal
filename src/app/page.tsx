@@ -8,7 +8,7 @@ export default async function Home() {
   const { userId } = auth();
 
   if (!userId) {
-    redirect('sign-up');
+    redirect('/sign-up');
   }
 
   const user = await currentUser();

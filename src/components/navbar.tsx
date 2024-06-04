@@ -42,7 +42,7 @@ const Navbar = () => {
                     className: ' sm:flex items-center gap-1',
                   })}
                 >
-                  View Application Status
+                  View Status
                   <ArrowRight className='ml-1.5 h-5 w-5' />
                 </Link>
               </>

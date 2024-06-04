@@ -3,9 +3,18 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Form } from '@/types';
 import { Badge } from '@/components/ui/badge';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
+import { Button, buttonVariants } from '@/components/ui/button';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { auth } from '@clerk/nextjs/server';
 
 const SubmissionsPage = () => {
+  const { userId } = auth();
+
+  if (!userId) {
+    redirect('/sign-up');
+  }
   const router = useRouter();
   const [form, setForm] = useState<Form | null>(null);
 
@@ -77,7 +86,9 @@ const SubmissionsPage = () => {
                 <h2 className='text-2xl font-semibold text-gray-800'>
                   Wallet Address
                 </h2>
-                <p className='text-base text-gray-600'>{form.walletAddress}</p>
+                <p className='text-sm lg:text-xl text-gray-600'>
+                  {form.walletAddress}
+                </p>
               </div>
               <div className='flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-inner'>
                 <svg
@@ -110,9 +121,16 @@ const SubmissionsPage = () => {
             </div>
           </div>
         ) : (
-          <p className='text-2xl font-semibold text-white'>
-            No Submissions Yet
-          </p>
+          <div className='flex flex-col'>
+            <p className='text-4xl font-bold text-black'>No Submissions Yet</p>
+            <Button
+              onClick={() => router.push('/form')}
+              className='flex mt-6 items-center cursor-pointer'
+            >
+              Fill the Form
+              <ArrowRight className='ml-1.5 h-5 w-5' />
+            </Button>
+          </div>
         )}
       </div>
     </div>

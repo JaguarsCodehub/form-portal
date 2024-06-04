@@ -11,9 +11,10 @@ const LandingPage = () => {
       {/* <Navbar /> */}
       <MaxWidthWrapper className='p-12 text-center'>
         <div className='animate-fadeIn'>
-          <h1 className='text-6xl font-bold text-black mb-8'>Catcents NFT</h1>
+          <h1 className='text-6xl font-bold text-black mb-8'>CATCENTS</h1>
           <p className='text-xl  text-black  mb-12'>
-            Discover unique and rare NFTs of adorable Catcents.
+            Because every purr should have its own digital paw-print in the
+            blockchain!
           </p>
           <div className='flex items-center justify-center'>
             <Button className='flex flex-col items-center justify-center'>
@@ -31,7 +32,7 @@ const LandingPage = () => {
           </div>
           <div className='relative mt-16'>
             <img
-              src='/cat2.png'
+              src='/images/background.png'
               alt='Cat NFT'
               className='w-1/2 mx-auto rounded-md'
             />
