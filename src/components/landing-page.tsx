@@ -25,14 +25,14 @@ const LandingPage = () => {
                   className: ' items-center gap-1',
                 })}
               >
-                Join our Waitlist
+                Join our Whitelist
                 <ArrowRight className='ml-1.5 h-5 w-5' />
               </Link>
             </Button>
           </div>
-          <div className='relative mt-16'>
+          <div className='relative'>
             <img
-              src='/images/background.png'
+              src='/images/t-01.png'
               alt='Cat NFT'
               className='w-1/2 mx-auto rounded-md'
             />

@@ -7,14 +7,13 @@ import { redirect, useRouter } from 'next/navigation';
 import { Button, buttonVariants } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { auth } from '@clerk/nextjs/server';
 
 const SubmissionsPage = () => {
-  const { userId } = auth();
+  // const { userId } = auth();
 
-  if (!userId) {
-    redirect('/sign-up');
-  }
+  // if (!userId) {
+  //   redirect('/sign-up');
+  // }
   const router = useRouter();
   const [form, setForm] = useState<Form | null>(null);
 
@@ -68,25 +67,11 @@ const SubmissionsPage = () => {
                 </h2>
                 <p className='text-lg text-gray-600'>{form.name}</p>
               </div>
-              <div className='flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-inner'>
-                <svg
-                  className='w-5 h-5 text-black mb-2'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    d='M19 10l-7 7-7-7'
-                  ></path>
-                </svg>
+              <div className='flex flex-col bg-gray-100 p-4 rounded-lg shadow-inner'>
                 <h2 className='text-2xl font-semibold text-gray-800'>
                   Wallet Address
                 </h2>
-                <p className='text-sm lg:text-xl text-gray-600'>
+                <p className='text-sm lg:text-xl text-gray-600 line-clamp-1'>
                   {form.walletAddress}
                 </p>
               </div>
